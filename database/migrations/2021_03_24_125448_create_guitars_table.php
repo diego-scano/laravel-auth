@@ -1,0 +1,36 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateGuitarsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('guitars', function (Blueprint $table) {
+            $table->id();
+            $table->string('brand', 255);
+            $table->string('model', 255);
+            $table->string('type', 255);
+            $table->float('price', 8,2);
+            $table->string('image', 2048);
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('guitars');
+    }
+}
